@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:37:36 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/22 13:28:03 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/22 14:01:38 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	c;
 
 	a,b,c = 0;
-	while (ft_strcmp(s1[], set) == 0)
+	while (ft_strcmp(s1[a], set[b]) == 0)
 	{
 		while()
 		{

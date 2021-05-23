@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:06:47 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 20:36:57 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/22 13:36:23 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	unsigned int long	count;
 	char				*cpy_dst;
 	char				*cpy_src;
-	int					count2;
+	unsigned long int	count2;
 	int					sum;
 
 	cpy_dst = dst;
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	count = 0;
 	count2 = ft_strlen(dst);
 	sum = ft_strlen(dst) + ft_strlen(src);
-	while (cpy_src[count] != 0 && count2 < (dstsize - 1))
+	while (cpy_src[count] != 0 && count2 < dstsize)
 	{
 		cpy_dst[count2] = cpy_src[count];
 		count++;

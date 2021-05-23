@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 11:19:18 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 20:36:41 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/22 15:22:17 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned int long	count;
 	char				*str;
-	const char			*str_src;
+	char				*str_src;
 
 	str = dst;
-	str_src = src;
+	str_src = (char *)src;
 	count = 0;
-	while (count <= n)
+	if (n == 0 || dst == src)
+		return (dst);
+	while (count < n)
 	{
-		*str++ = *str_src++;
+		str[count] = str_src[count];
 		count++;
 	}
-	return (str);
+	return (dst);
 }

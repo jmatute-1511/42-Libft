@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 19:42:00 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/22 12:34:26 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/22 15:36:02 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
 
-	p = malloc(count * sizeof(size));
+	p = malloc(count * size);
 	if (p == '\0')
-		return (0);
-	ft_bzero(p, sizeof(p));
+		return (NULL);
+	ft_bzero(p, count * size);
 	return (p);
 }

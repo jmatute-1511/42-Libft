@@ -6,26 +6,41 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:26:59 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 19:41:28 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/22 18:38:53 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib.h"
+#include "libft.h"
+#include <string.h>
 
 void	*ft_memccpy(void *dst, const void *orig, int c, size_t n)
 {
 	int unsigned long	count;
-	char				*str_dst;
-	const char			*str_orig;
+	unsigned char		*cpy_dst;
+	unsigned char		*cpy_orig;
 
-	str_dst = dst;
-	str_orig = orig;
 	count = 0;
-	while (str_orig[count] != c && str_orig[count] != '\0' && count <= n)
+	cpy_orig = (unsigned char *)orig;
+	cpy_dst = (unsigned char *)dst;
+	while (count < n)
 	{
-		str_dst[count] = str_orig[count];
+		cpy_dst[count] = cpy_orig[count];
+		if (cpy_orig[count] == (unsigned char)c)
+			return (dst);
 		count++;
 	}
-	str_dst[count] = str_orig[count];
-	return (dst);
+	return (NULL);
+}
+
+int main()
+{
+	char a[]= "hola que tal";
+	char b[] = "mira";
+	char a1[]= "hola que tal";
+	char b1[] = "mira";
+	printf("%s\n",memccpy(a,b,'a',4));
+	printf("%s\n",a);
+	printf("%s\n",ft_memccpy(a1,b1,'a',4));
+	printf("%s\n",a1);
+	return 0;
 }
