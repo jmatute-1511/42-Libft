@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 21:21:47 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 20:37:10 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/23 19:24:38 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned long int	count;
+	size_t	count;
 
 	count = 0;
-	if (s1[count] == 0 && s2[count] == 0)
-		return (0);
-	while ((s1[count] && count < n) || (s2[count] && count < n))
+	while ((s1[count] || s2[count]) && count < n)
 	{
 		if (s1[count] != s2[count])
-			return (s1[count] - s2[count]);
+			return ((unsigned char)s1[count] - (unsigned char)s2[count]);
 		count++;
 	}
-	return (count);
+	return (0);
 }
+/*
+int main()
+{
+	char a[]= "skahdkha";
+
+	printf("%d",ft_strncmp(a,a+2,0));
+}
+*/

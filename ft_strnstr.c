@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 20:14:51 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 20:37:14 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:08:10 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,32 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned long int	a;
-	unsigned long int	d;
-	char				*cpy_haystack;
-	char				*cpy_needle;
+	size_t	a;
+	size_t	d;
 
 	a = 0;
 	d = 0;
-	cpy_haystack = (char *)haystack;
-	cpy_needle = (char *)needle;
-	if (cpy_needle[d] == '\0')
-		return (cpy_haystack);
-	while (cpy_haystack[a] && a < len)
+	if (needle[d] == '\0')
+		return ((char *)haystack);
+	else if (haystack[d] == '\0')
+		return (0);
+	while (haystack[a] && a < len)
 	{
-		while (cpy_haystack[a + d] == cpy_needle[d] && cpy_needle[d] && \
-		cpy_haystack[a])
+		while (haystack[a + d] == needle[d] && needle[d] && a + d < len)
 		{
-			if (cpy_needle[d + 1] == '\0')
-				return (cpy_haystack + a);
+			if (d + 1 == ft_strlen(needle))
+				return ((char *)haystack + a);
 			d++;
 		}
 		d = 0;
 		a++;
 	}
 	return (0);
+}
+
+int main()
+{
+	char a[]= "MZIRIBMZIRIBMZE123";
+	char b[]= "MZIRIBMZE";
+	printf("%s\n",ft_strnstr(a,b,9));
 }

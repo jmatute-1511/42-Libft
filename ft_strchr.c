@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 18:42:58 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/21 20:36:49 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/23 17:37:13 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		count;
-	char	*cpy_s;
+	size_t		count;
+	char		*cpy_s;
 
 	cpy_s = (char *)s;
 	count = 0;
-	while (cpy_s[count] != 0)
+	while (count <= ft_strlen(s))
 	{
 		if (cpy_s[count] == c)
-			return (cpy_s + count);
+			return ((char *)s + count);
 		count++;
 	}
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (0);
 }

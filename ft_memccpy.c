@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 12:26:59 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/22 18:38:53 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/23 15:53:43 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	*ft_memccpy(void *dst, const void *orig, int c, size_t n)
 	{
 		cpy_dst[count] = cpy_orig[count];
 		if (cpy_orig[count] == (unsigned char)c)
-			return (dst);
+			return (dst + (count + 1));
 		count++;
 	}
 	return (NULL);
 }
-
+/*
 int main()
 {
 	char a[]= "hola que tal";
@@ -44,3 +44,4 @@ int main()
 	printf("%s\n",a1);
 	return 0;
 }
+*/

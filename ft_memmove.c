@@ -14,22 +14,28 @@
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	unsigned char		*dst_str1;
-	const unsigned char	*src_str2;
+	unsigned char			*dst_str1;
+	const unsigned char		*src_str2;
 
 	dst_str1 = (unsigned char *)str1;
-	src_str2 = (const unsigned char *) str2;
-	if (dst_str1 > src_str2)
+	src_str2 = (const unsigned char *)str2;
+	if (str1 == str2)
+		return (str1);
+	while (n > 0 && dst_str1 > src_str2)
 	{
-		dst_str1 += n - 1;
-		src_str2 += n - 1;
-		while (n > 0)
-		{
-			dst_str1[n - 1] = src_str2[n - 1];
-			n--;
-		}
+		dst_str1[n - 1] = src_str2[n - 1];
+		n--;
 	}
-	else
-		str1 = ft_memcpy(str1, str2, n);
+	if (dst_str1 < src_str2)
+		return (ft_memcpy(str1, str2, n));
 	return (str1);
 }
+/*
+int main()
+{
+	char a[] = "ño que sea";
+	char b[] = "ño que sea";
+	printf("%s\n",memmove(a,a+4, 6));
+	printf("%s\n",ft_memmove(b,b+4, 6));
+}
+*/

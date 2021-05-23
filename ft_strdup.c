@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 20:32:12 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/22 13:58:04 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/23 21:36:48 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ char 	*ft_strdup(const char *s)
 
 	len = ft_strlen(s);
 	cpy = malloc(len + 1);
-	if (cpy == 0)
-		return (0);
-	ft_memcpy(cpy, s, len);
-	cpy[len] = '\0';
+	if (!cpy)
+		return (NULL);
+	ft_memcpy(cpy, s, len + 1);
 	return (cpy);
 }
