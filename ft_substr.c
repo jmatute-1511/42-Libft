@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 21:00:49 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/23 22:00:17 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/24 10:35:14 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*cpy;
 
+	if (!s)
+		return (NULL);
 	cpy = malloc(len + 1);
 	if (!cpy)
 		return (NULL);
