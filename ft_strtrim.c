@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:37:36 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/24 13:02:14 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/26 12:50:43 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,18 @@ size_t	ft_set_i(char const *s1, char const *set)
 {
 	size_t	a;
 	size_t	b;
-	size_t	c;
 
-	a = ft_strlen(set);
+	a = 0;
 	b = 0;
-	c = 0;
-	while (c < a)
+	while (set[a] != '\0')
 	{
-		while (a > 0)
+		if (set[a] == s1[b])
 		{
-			while (s1[b] == set[a])
-				b++;
-			a--;
+			b++;
+			a = 0;
 		}
-		if (b == 0)
-			return (0);
-		a = ft_strlen(set);
-		b++;
-		c++;
+		if (set[a] != s1[b])
+			a++;
 	}
 	return (b);
 }
@@ -42,26 +36,20 @@ size_t	ft_set_f(char const *s1, char const *set)
 {
 	size_t	a;
 	size_t	b;
-	size_t	c;
 
-	a = ft_strlen(set);
-	b = 0;
-	c = ft_strlen(s1);
-	while (b < a)
+	a = 0;
+	b = ft_strlen(s1) - 1;
+	while (set[a] != '\0')
 	{
-		while (a > 0)
+		if (set[a] == s1[b])
 		{
-			while (s1[c] == set[a])
-				c--;
-			a--;
+			b--;
+			a = 0;
 		}
-		if (c == ft_strlen(s1))
-			return (c);
-		a = ft_strlen(set);
-		c--;
-		b++;
+		if (set[a] != s1[b])
+			a++;
 	}
-	return (c);
+	return (b);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -71,31 +59,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*cpy;
 
-	a = ft_set_i(s1, set);
-	c = ft_set_f(s1, set);
-	len = (c - a) + 1;
 	if (!s1 || !set)
 		return (NULL);
-	cpy = malloc(len + 2);
+	c = ft_set_f(s1, set);
+	a = ft_set_i(s1, set);
+	if (a == ft_strlen(s1))
+		return ("");
+	len = (c - a) + 1;
+	cpy = malloc(len + 1);
 	if (!cpy)
 		return (NULL);
-	ft_memcpy(cpy, s1 + a, c);
-	cpy[len + 1] = '\0';
+	ft_memcpy(cpy, s1 + a, len);
+	cpy[len] = '\0';
 	return (cpy);
-}
-
-int main ()
-{
-	char a[] = "\n \t \v hdhasgjh \n\v \t ";
-	char b[] = "\n\t\v ";
-	char *str= ft_strtrim(a,b);
-	int i = 0;
-	while (str[i] != '\0')
-	{
-		printf("%i\n",str[i]);
-		i++;
-	}
-	printf("\n%s\n",ft_strtrim(a,b));
-	printf("%i\n",i);
-	return (0);
 }

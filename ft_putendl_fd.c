@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 11:56:30 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/27 12:08:18 by jmatute-         ###   ########.fr       */
+/*   Created: 2021/05/27 12:41:41 by jmatute-          #+#    #+#             */
+/*   Updated: 2021/05/27 12:53:23 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t		len;
-	char		*p;
+	int		len;
 
-	if (!s2 || !s1)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	p = malloc(len + 1);
-	if (!p)
-		return (NULL);
-	ft_memcpy(p, s1, ft_strlen(s1));
-	ft_memmove(p + ft_strlen(s1), s2, len);
-	p[len] = '\0';
-	return (p);
+	if (s)
+	{
+		len = ft_strlen(s);
+		(s[len] = '\n') && (s[len + 1] = '\0');
+		write(fd, &*s, len);
+	}
 }
