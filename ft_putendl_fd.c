@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 12:41:41 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/27 12:53:23 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:09:43 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int		len;
+	size_t	len;
 
 	if (s)
 	{
 		len = ft_strlen(s);
-		(s[len] = '\n') && (s[len + 1] = '\0');
 		write(fd, &*s, len);
+		write(fd, &"\n", 1);
 	}
 }

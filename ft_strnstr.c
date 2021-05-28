@@ -6,7 +6,7 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 20:14:51 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/23 21:08:10 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/28 18:16:18 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		a++;
 	}
 	return (0);
-}
-
-int main()
-{
-	char a[]= "MZIRIBMZIRIBMZE123";
-	char b[]= "MZIRIBMZE";
-	printf("%s\n",ft_strnstr(a,b,9));
 }

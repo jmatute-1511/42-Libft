@@ -6,13 +6,13 @@
 /*   By: jmatute- <jmatute-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:37:36 by jmatute-          #+#    #+#             */
-/*   Updated: 2021/05/26 12:50:43 by jmatute-         ###   ########.fr       */
+/*   Updated: 2021/05/28 18:16:44 by jmatute-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_set_i(char const *s1, char const *set)
+static size_t	ft_set_i(char const *s1, char const *set)
 {
 	size_t	a;
 	size_t	b;
@@ -32,7 +32,7 @@ size_t	ft_set_i(char const *s1, char const *set)
 	return (b);
 }
 
-size_t	ft_set_f(char const *s1, char const *set)
+static size_t	ft_set_f(char const *s1, char const *set)
 {
 	size_t	a;
 	size_t	b;
