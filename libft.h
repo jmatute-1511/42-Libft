@@ -42,6 +42,7 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const	char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnjoin(int nstrings, ...);
+int	ft_strcmp(const char *s1, const char *s2);
 typedef struct s_list
 {
 	void			*content;
