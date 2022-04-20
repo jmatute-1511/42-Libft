@@ -5,6 +5,7 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *s);
